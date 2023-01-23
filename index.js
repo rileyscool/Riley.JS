@@ -3,7 +3,7 @@ const discord = require(`discord.js`);
 const fs = require(`fs`);
 const embeds = require(`./embeds.js`);
 
-function init({
+function init( {
   client,
   commandsDirectory,
   eventsDirectory,
@@ -55,37 +55,39 @@ function init({
       throw "You need to provide a prefix!";
     }
     client.on("messageCreate", (message) => {
-        if(message.contents.startsWith(prefix)){
-            const args = message.content.split(" ");
-            const command = args[0].toLowerCase().slice(prefix.length);
-            if (
-              client.commands.get(command) ||
-              client.commands.aliases.get(command)
-            ) {
-              var cmd =
-                client.commands.get(command) || client.commands.aliases.get(command);
-              if (cmd.permission == null) {
-                return cmd.execute(client, message);
-              }
-              if (cmd.permission == "DEV" || cmd.permission== "Developer" ) {
-                if (message.member.id == client.application.owner || client.devs.includes(message.member.id)) {
-                  return cmd.execute(client, message);
-                }
-              }
-              if (message.member.permissions.has(cmd.permission)) {
-                return cmd.execute(client, message);
-              }
-              message.channel.send({
-                embeds: [embeds.InvalidPermissions.setAuthor({name: message.author.tag, iconURL: message.author.avatarURL()})],
-              });
+      if (message.content.startsWith(prefix)) {
+        const args = message.content.slice(prefix.length).trim().split(/ +/g);
+        const command = args.shift().toLowerCase();
+        if (
+          client.commands.get(command) ||
+          client.commands.aliases.get(command)
+        ) {
+          var cmd =
+          client.commands.get(command) || client.commands.aliases.get(command);
+          if (cmd.permission == null) {
+            return cmd.execute(client, message, args);
+          }
+          if (cmd.permission == "DEV" || cmd.permission == "Developer") {
+            if (client.devs.includes(message.member.id)) {
+              return cmd.execute(client, message, args);
             }
+          }
+          if (message.member.permissions.has(cmd.permission)) {
+            return cmd.execute(client, message);
+          }
+          message.channel.send({
+            embeds: [embeds.InvalidPermissions.setAuthor({
+              name: message.author.tag, iconURL: message.author.avatarURL()})],
+          });
         }
+      }
     });
   }
 
-  client.on(`ready`, () => {
-    console.log(`Riley.JS has logged in as ${client.user.tag}`);
-  });
+  client.on(`ready`,
+    () => {
+      console.log(`Riley.JS has logged in as ${client.user.tag}`);
+    });
 }
 
 module.exports = {
