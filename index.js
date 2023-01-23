@@ -73,7 +73,7 @@ function init( {
             }
           }
           if (message.member.permissions.has(cmd.permission)) {
-            return cmd.execute(client, message);
+            return cmd.execute(client, message, args);
           }
           message.channel.send({
             embeds: [embeds.InvalidPermissions.setAuthor({
