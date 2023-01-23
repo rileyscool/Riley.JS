@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npm version patch & npm publish"
   },
+  "repository":"https://github.com/rileyscool/Riley.JS",
   "dependencies": {
     "discord.js": "^14.6.0",
     "quick.db": "9.0.6",
