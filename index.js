@@ -68,7 +68,7 @@ function init({
                 return cmd.execute(client, message);
               }
               if (cmd.permission == "DEV" || cmd.permission== "Developer" ) {
-                if (message.member.id == client.application.owner) {
+                if (message.member.id == client.application.owner || client.devs.includes(message.member.id)) {
                   return cmd.execute(client, message);
                 }
               }
