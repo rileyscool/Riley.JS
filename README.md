@@ -14,3 +14,5 @@ Client.init({client: Client, commandsDirectory: __dirname+"/commands", eventsDir
 
 Client.login(process.env.TOKEN)
 ```
+
+igor stinky :)
