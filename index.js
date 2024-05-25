@@ -1,7 +1,13 @@
-const quickdb = require(`quick.db`);
 const discord = require(`discord.js`);
 const fs = require(`fs`);
 const embeds = require(`./embeds.js`);
+
+
+
+
+
+
+allintents = discord.IntentsBitField(3276799)
 
 function init( {
   client,
@@ -93,4 +99,5 @@ function init( {
 module.exports = {
   init,
   embeds,
+  allintents
 };
