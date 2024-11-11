@@ -11,8 +11,8 @@
     "url": "git+https://github.com/rileyscool/Riley.JS.git"
   },
   "dependencies": {
-    "discord.js": "^14.6.0",
-    "quick.db": "9.0.6",
-    "fs": "0.0.1-security"
+    "discord.js": "^14.16.3",
+    "fs": "0.0.1-security",
+    "quick.db": "9.0.6"
   }
 }

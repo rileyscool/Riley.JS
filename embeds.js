@@ -7,9 +7,9 @@ InvalidPermissions.setDescription(`You don't have the correct permissions to exe
 InvalidPermissions.setTimestamp()
 
 const MentionMissing = new discord.EmbedBuilder()
-MentionMissing.setTitle(`Missing Mention!`)
+MentionMissing.setTitle(`Missing User!`)
 MentionMissing.setColor(`Red`)
-MentionMissing.setDescription(`You need to mention somebody to use this command!`)
+MentionMissing.setDescription(`You need to add a user to use this command!`)
 MentionMissing.setTimestamp()
 
 module.exports = { InvalidPermissions, MentionMissing }
