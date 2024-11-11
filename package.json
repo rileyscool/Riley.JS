@@ -1,18 +1,17 @@
 {
-  "name": "riley.js",
-  "displayName": "Riley.JS",
-  "version": "1.1.9",
+  "name": "rielyjs",
+  "displayNam": "rielyjs",
+  "version": "2.0.0",
   "description": "Make your bot development easier with Riley.JS!",
   "scripts": {
     "build": "npm version patch & npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rileyscool/Riley.JS.git"
+    "url": "git+https://github.com/rileyscool/rielyjs.git"
   },
   "dependencies": {
     "discord.js": "^14.16.3",
-    "fs": "0.0.1-security",
-    "quick.db": "9.0.6"
+    "fs": "0.0.1-security"
   }
 }
