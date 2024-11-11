@@ -1,18 +1,36 @@
 
-# Riley.JS
+# rielyJS
 
-A discord.js utility made for private use but is avaliable publicly.
+
 
 ## Usage
+
+index.js
 ```javascript
-const Discord = require(`discord.js`)
-const RileyJS = require(`riley.js`)
+const rileyjs = require('../Riley.JS/')
+const discord = require('discord.js')
 
-const Client = new Discord.Client({intents: Discord.IntentsBitField(3276799)})
+require('dotenv').config()
 
-Client.init({client: Client, commandsDirectory: __dirname+"/commands", eventsDirectory: __dirname+"/events", prefix: "!"})
+const bot = new discord.Client({intents: ['Guilds', 'GuildMessages', 'GuildMessageReactions']})
 
-Client.login(process.env.TOKEN)
+bot.login(process.env.token).then(() =>{
+    rileyjs.init({client: bot, commandsDirectory: __dirname+'/commands/', eventsDirectory: __dirname+'/events/'})
+})
+```
+
+commands/ping.js
+```javascript
+const { SlashCommandBuilder } = require('discord.js');
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('ping')
+        .setDescription('Replies with Pong!'),
+    async execute(interaction) {
+        await interaction.reply('Pong!')
+    },
+};
 ```
 
 igor stinky :(
